@@ -38,14 +38,24 @@
         }(document, 'script', 'facebook-jssdk'));
 
         function login() {
-            FB.login(function(reponse) {
-                if (reponse.status === "connected") {
+            FB.login(function(response) {
+                if (response.status === "connected") {
                     document.getElementById('status').innerHTML = 'We are connected.';
                 } else {
                     document.getElementById('status').innerHTML = 'We are not logged in.';
                 }
             })
         }
+
+        /* make the API call */
+        FB.api(
+            "/{user-id}/friends",
+            function (response) {
+              if (response && !response.error) {
+                /* handle the result */
+              }
+            }
+        );
 
     </script>
     
