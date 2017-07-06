@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Karla|Quantico|Audiowide' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mason</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '309413376184629',
+              xfbml      : true,
+              version    : 'v2.9'
+            });
+
+            FB.getLoginStatus(function(response) {
+                if (reponse.status === "connected") {
+                    document.getElementById('status').innerHTML = 'We are connected.';
+                } else {
+                    document.getElementById('status').innerHTML = 'We are not logged in.';
+                }
+            })
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function login() {
+            FB.login(function(reponse) {
+                if (reponse.status === "connected") {
+                    document.getElementById('status').innerHTML = 'We are connected.';
+                } else {
+                    document.getElementById('status').innerHTML = 'We are not logged in.';
+                }
+            })
+        }
+
+        if 
+        GET /v2.5/me HTTP/1.1
+        Host: graph.facebook.com
+
+    </script>
+    
+    <div id="status"></div>
+
+    <button onclick="login()">Login</button>
+</body>
+</html>
